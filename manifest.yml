@@ -1,0 +1,26 @@
+modules:
+  confluence:spacePage:
+    - key: page-details-cql-query-hello-world-space-page
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: page-details-cql-query
+      route: hello-world
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs22.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/dfbb1b05-9d77-49a8-bb1e-83805a32d940
+permissions:
+  scopes:
+    - read:confluence-content.all
+    - search:confluence
+    - read:space:confluence
